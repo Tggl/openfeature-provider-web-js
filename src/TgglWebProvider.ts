@@ -27,12 +27,11 @@ export class TgglWebProvider implements Provider {
     this.events = new OpenFeatureEventEmitter()
 
     this.client.onResultChange(() => {
-      this.events.emit(ClientProviderEvents.ContextChanged)
+      this.events.emit(ClientProviderEvents.ConfigurationChanged)
     })
   }
 
   async initialize(context?: EvaluationContext): Promise<void> {
-    console.log('init', context)
     await this.client.setContext(context as TgglContext)
   }
 
@@ -44,7 +43,6 @@ export class TgglWebProvider implements Provider {
     oldContext: EvaluationContext,
     newContext: EvaluationContext
   ): Promise<void> {
-    console.log('change', newContext)
     await this.client.setContext(newContext as TgglContext)
   }
 

@@ -1,0 +1,40 @@
+{
+  "name": "openfeature-web-tggl-provider",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write src/.",
+    "test": "jest",
+    "prepublishOnly": "npm test && rm -rf lib && npm run build",
+    "prepare": "husky install",
+    "preversion": "npm test",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
+  "author": "Nicolas Keller",
+  "license": "ISC",
+  "description": "",
+  "peerDependencies": {
+    "@openfeature/web-sdk": "^1.2.4"
+  },
+  "dependencies": {
+    "tggl-client": "^1.15.6"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.13",
+    "husky": "^9.1.6",
+    "jest": "^29.7.0",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.6.2"
+  },
+  "files": [
+    "lib/**/*"
+  ]
+}

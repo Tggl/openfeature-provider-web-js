@@ -1,6 +1,6 @@
 {
   "name": "openfeature-web-tggl-provider",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Tggl Typescript Web OpenFeature Provider",
   "keywords": [
     "Tggl",
